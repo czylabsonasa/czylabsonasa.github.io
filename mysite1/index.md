@@ -12,6 +12,7 @@
 
 # Set up
 - i'm using julia from a terminal and - for me - vscode is only for editing (too old to rock'n roll), so here i'm deviating from doggo's workflow
+- the following approach is discussed [here](https://github.com/orgs/community/discussions/63631)
 - create a `yourusername.github.io` repo on github and prepare for work on it locally
 - start julia in the local `yourusername.github.io` directory
 - activate a project
@@ -36,7 +37,7 @@
 
 ## Upload using Github Desktop
 - no official Github Desktop on linux (there are some builds, however)
-- my approach is: set up two repos on GitHub, one for the development and one for the `__site` folder
+- my approach is described in the `Set up` part
 
 
 # Examples

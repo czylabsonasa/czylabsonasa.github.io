@@ -1,0 +1,4 @@
+pushIt ${1}
+cd "${2}/__site"
+pushIt ${1}
+cd ../..
