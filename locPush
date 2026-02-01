@@ -1,12 +1,12 @@
 echo ""
-echo -e "\033[1;33m push the hub with message ${1} \033[0m"
+echo -e "\033[1;33m push the <hub> with message <${1}> \033[0m"
 echo ""
 
 pushIt ${1}
 cd "${2}/__site"
 
 echo ""
-echo -e "\033[1;33m push the site ${2} with message ${1} \033[0m"
+echo -e "\033[1;33m push the site <${2}> with message <${1}> \033[0m"
 echo ""
 
 pushIt ${1}
