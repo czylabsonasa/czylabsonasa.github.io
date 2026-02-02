@@ -4,6 +4,7 @@
 # git add --all
 # git commit -m "${1}"
 # git push origin master
+
 # the colorcodes are from https://www.shellhacks.com/bash-colors/
 
 echo ""
