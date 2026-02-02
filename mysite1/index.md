@@ -20,7 +20,7 @@
 - issue `newsite("mysite1"; template="sandbox")` and  `serve()`
 - now you can browse the site on `localhost:8000`
 - the actual site is inside the `mysite1/__site` directory, which is gitignored by default. It means, that you can create a repo named `mysite` on github with the content of this `__site` dir, and u can activate the github-pages on it...
-- issue `publish(;prepath="mysite1")`, push it and browse `username.github.io/mysite1`
+- issue `optimize(;prepath="mysite1",minify=false)`, push it and browse `username.github.io/mysite1`
 
 
 ## Update title
@@ -129,14 +129,67 @@ versioninfo()
 \tableinput{}{./tableinput/population_by_year.csv}
 
 @@source
-
 Source: Wikipedia
 @@
 
+- you can style the table output by adding these to `franklin.css` :
+```css
+th {
+   background-color: rgb(165, 165, 248);
+   color: white;
+   font-weight: bold;
+}
+tr:nth-child(odd) {
+   background-color: lightgray;
+}
+```
+- (the styled table is shown)
+- as you see the `source` part above is too large, this way u can style it (`franklin.css`)
+- the css syntax:
+```css
+.source_small {
+   font-size: var(--small);
+   font-style: italic;
+}
+```
+- the markdown syntax:
+  - Franklin will create a `div` w/ class `source_small` and the above styling applied to that particular class.
+```markdown
+@@source_small
+Source: Wikipedia
+@@
+```
+- the result:
+@@source_small
+Data source: Wikipedia
+@@
+
+- see [this](https://franklinjl.org/code/) for more details about code handling
 
 ## How to insert an image file
+- the syntax:
+```
+![beeswarm population by region](/assets/p_beeswarm_region.svg)
+```
+- the result:
+![beeswarm population by region](/assets/p_beeswarm_region.svg)
+@@source_small
+Image source: Wikipedia
+@@
+
 
 ## How to insert clickable thumbnail to a Youtube video
+- this is the tutorial video's clickable link
+- the markdown syntax:
+  - it is an image inside the `[]` part
+  - for `...vi/[hash]/...` the `hash` what is shown in the address
+```markdown
+[![YT thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
+```
+- the result:
+[![YT thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
 
 ## How to inject raw HTML
 
