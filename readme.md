@@ -1,4 +1,4 @@
 # some sites
 
-## [mysite1](https://czylabsonasa.github.io/mysite1/)
+## [intro to franklin.jl](https://czylabsonasa.github.io/franklintro)
 - `doggo dot jl`'s Franklin tutorial
