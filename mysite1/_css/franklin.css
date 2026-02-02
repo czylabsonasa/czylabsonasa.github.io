@@ -352,4 +352,8 @@ tr:nth-child(odd) {
 .source_small {
    font-size: var(--small);
    font-style: italic;
+}
 
+img[alt="thumbnail"] { 
+   width: 100px; 
+}

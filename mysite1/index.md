@@ -190,8 +190,68 @@ Image source: Wikipedia
 - the result:
 [![YT thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
 
+- the image is too large, in markdown AFAIK no official way to resize it, but u can style it through the `alt` part:
+- markdown syntax (here `thumbnail` will be the `alt` part):
+```markdown
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+```
+- the css syntax:
+```css
+img[alt="thumbnail"] { 
+   width: 100px; 
+}
+```
+
+- the result is
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
+- more thumbnails:
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+[![thumbnail](https://img.youtube.com/vi/SSYV8gC2UkQ/0.jpg)](https://www.youtube.com/watch?v=SSYV8gC2UkQ)
+
+- with `\textoutput{}` function(?) one can generate and include thumbnails programatically
+  - [How to use loops for templating?](https://franklinjl.org/faq/technical/)
+- the relevant part in the `index.md`:
+  - define and call the function:
+
+```julia:./tmaker
+function tmaker(lista)
+   tmp=String[]
+   for elem in lista
+      push!(
+         tmp,
+         """[![thumbnail](https://img.youtube.com/vi/$(elem)/0.jpg)](https://www.youtube.com/watch?v=$(elem))"""
+      )
+   end
+   join(tmp,'\n')
+end
+
+tmaker(["gzvn-hdlkUg","fVBiLEtZB7A","SSYV8gC2UkQ","zmlulaxatRs"])|>println
+```
+
+  - include its output:
+```markdown
+\textoutput{./tmaker}
+```
+
+- the result:
+\textoutput{./tmaker}
+
+
+
 
 ## How to inject raw HTML
+- syntax:
+  - enclose it by `~~~ ~~~`:
+```markdown
+~~~
+<iframe width="640" height="360" src="https://www.youtube.com/embed/fVBiLEtZB7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+~~~
+```
+- the result:
+~~~
+<iframe width="640" height="360" src="https://www.youtube.com/embed/fVBiLEtZB7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+~~~
 
 
 
