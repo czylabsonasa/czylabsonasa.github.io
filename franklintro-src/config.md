@@ -1,8 +1,11 @@
 +++
 author = "Dabbling Doggoo+mee"
 
-generate_rss = false
+prepath = "franklintro"
+
 ignore = ["readme.md"]
+
+generate_rss = false
 +++
 
 \newcommand{\R}{\mathbb R}
