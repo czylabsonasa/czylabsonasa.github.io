@@ -1,0 +1,1 @@
+ls: 'a' nem érhető el: Nincs ilyen fájl vagy könyvtár

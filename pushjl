@@ -21,9 +21,7 @@ end
 
 
 function pushit(msg)
-   run(pipeline(`git add --all`))
-   run(pipeline(`git commit -m "$(msg)"`))
-   run(pipeline(`git push origin master`))
+   run(`pushIt $(msg)`)
 end
 
 
