@@ -33,10 +33,10 @@ if abspath(PROGRAM_FILE)==@__FILE__
    site = clargs["site"]
    msg = clargs["msg"]
 
-   @warn "pushing the <root>"
+   @info "\npushing the <root>\n"
    pushit(msg)
    if site>""
-      @warn "pushing the site <$(site)>"
+      @info "\npushing the site <$(site)>\n"
       cd(joinpath(site,"__site"))
       pushit(msg)
    end
