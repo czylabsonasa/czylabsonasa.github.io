@@ -39,7 +39,7 @@ if abspath(PROGRAM_FILE)==@__FILE__
       println()
       @info "pushing the site <$(site)>\n"
       cd(joinpath(site,"__site"))
-      @info "pwd is: $(pwd)"
+      @info "pwd is: $(pwd())"
       pushit(msg)
    end
 end
