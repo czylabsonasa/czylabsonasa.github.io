@@ -2,6 +2,24 @@
 
 # let julia handle the git pushes
 
+using ArgParse
+
+function parse_commandline()
+   s = ArgParseSettings()
+
+   @add_arg_table s begin
+      "--site"
+         help="the site to be pushed. defaults to <root>"
+         default=""
+      "--msg"
+         help="the commit message. defaults to <up>"
+         default="up"
+   end
+
+   parse_args(s)
+end
+
+
 function pushit(msg)
    run(pipeline(`git add --all`))
    run(pipeline(`git commit -m $(msg)`))
@@ -11,9 +29,15 @@ end
 
 
 if abspath(PROGRAM_FILE)==@__FILE__
-   if length(ARGS)<1
-      pushit("up")
-   elseif length(ARGS)<2
-   else
+   clargs = parse_commandline()
+   site = clargs["site"]
+   msg = clargs["msg"]
+
+   @warn "pushing the <root>"
+   pushit(msg)
+   if site>""
+      @warn "pushing the site <$(site)>"
+      cd(joinpath(site,"__site"))
+      pushit(msg)
    end
 end
