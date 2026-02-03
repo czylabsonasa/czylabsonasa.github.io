@@ -22,7 +22,7 @@ end
 
 function pushit(msg)
    run(pipeline(`git add --all`))
-   run(pipeline(`git commit -m $(msg)`))
+   run(pipeline(`git commit -m "$(msg)"`))
    run(pipeline(`git add --all`))
    run(pipeline(`git push origin master`))
 end
@@ -33,10 +33,12 @@ if abspath(PROGRAM_FILE)==@__FILE__
    site = clargs["site"]
    msg = clargs["msg"]
 
-   @info "\npushing the <root>\n"
+   println()
+   @info "pushing the <root>\n"
    pushit(msg)
    if site>""
-      @info "\npushing the site <$(site)>\n"
+      println()
+      @info "pushing the site <$(site)>\n"
       cd(joinpath(site,"__site"))
       pushit(msg)
    end
