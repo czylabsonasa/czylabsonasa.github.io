@@ -1,0 +1,19 @@
+#!/home/nosy/.juliaup/bin/julia
+
+# let julia handle the git pushes
+
+function pushit(msg)
+   run(pipeline(`git add --all`))
+   run(pipeline(`git commit -m $(msg)`))
+   run(pipeline(`git add --all`))
+   run(pipeline(`git push origin master`))
+end
+
+
+if abspath(PROGRAM_FILE)==@__FILE__
+   if length(ARGS)<1
+      pushit("up")
+   elseif length(ARGS)<2
+   else
+   end
+end
